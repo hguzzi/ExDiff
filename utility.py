@@ -45,6 +45,7 @@ Example Usage:
 
 '''
 
+import networkx as nx
 
 def create_graph(model, parameters):
   if model=='erdos-reny':
