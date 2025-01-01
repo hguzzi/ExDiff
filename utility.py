@@ -51,24 +51,24 @@ def create_graph(model, parameters):
   if model=='erdos-reny':
       n = parameters['n']  # Number of nodes
       p = parameters['p']  # Probability of edge creation
-      G = nx.erdos_renyi_graph(n, p)
+      G = networkx.erdos_renyi_graph(n, p)
   elif model == 'GNP':  # Added GNP model
       n = parameters['n']  # Number of nodes
       p = parameters['p']  # Probability of edge creation
-      G = nx.gnp_random_graph(n, p)  # Use gnp_random_graph
+      G = networkx.gnp_random_graph(n, p)  # Use gnp_random_graph
   elif model == 'GNP':  # Added GNP model
       n = parameters['n']  # Number of nodes
       p = parameters['p']  # Probability of edge creation
-      G = nx.gnp_random_graph(n, p)  # Use gnp_random_graph
+      G = networkx.gnp_random_graph(n, p)  # Use gnp_random_graph
   elif model == 'barabasi-albert':
       n = parameters['n']
       m = parameters['m']  # Number of edges to attach from a new node to existing nodes
-      G = nx.barabasi_albert_graph(n, m)  # Use barabasi_albert_graph
+      G = networkx.barabasi_albert_graph(n, m)  # Use barabasi_albert_graph
   elif model == 'sbm':  # Added SBM model
         n = parameters['n']  # Number of nodes
         sizes = parameters['sizes']  # Block sizes (list)
         probs = parameters['probs']  # Probability matrix (numpy array)
-        G = nx.stochastic_block_model(sizes, probs, seed=0)  # Use stochastic_block_model
+        G = networkx.stochastic_block_model(sizes, probs, seed=0)  # Use stochastic_block_model
   return G
 
 
