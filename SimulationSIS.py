@@ -14,7 +14,7 @@ Copyright 2018 Indiana University and Cambridge University Press
 
 from collections import Counter
 from operator import itemgetter
-
+import random
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import networkx as nx
