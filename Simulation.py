@@ -29,7 +29,7 @@ def initial_state(G):
     state[patient_zero] = 'I'
     return state
 
-initial_state(G)
+
 
 """
 Model Parameters Parameters (let use a dict)
