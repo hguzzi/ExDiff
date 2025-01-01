@@ -14,7 +14,7 @@ Copyright 2018 Indiana University and Cambridge University Press
 
 from collections import Counter
 from operator import itemgetter
-import random
+import random as rd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -25,7 +25,7 @@ def initial_state(G):
     for node in G.nodes:
         state[node] = 'S'
     
-    patient_zero = random.choice(list(G.nodes))
+    patient_zero = rd.choice(list(G.nodes))
     state[patient_zero] = 'I'
     return state
 
@@ -45,12 +45,12 @@ def state_transition(G, current_state):
     next_state = {}
     for node in G.nodes:
         if current_state[node] == 'I':
-            if random.random() < MU:
+            if rd.random() < MU:
                 next_state[node] = 'S'
         else: # current_state[node] == 'S'
             for neighbor in G.neighbors(node):
                 if current_state[neighbor] == 'I':
-                    if random.random() < BETA:
+                    if rd.random() < BETA:
                         next_state[node] = 'I'
 
     return next_state
