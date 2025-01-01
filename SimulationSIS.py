@@ -63,7 +63,7 @@ class StopCondition(StopIteration):
 class Simulation:
     '''Simulate state transitions on a network'''
 
-    def __init__(self, G, initial_state, state_transition,
+    def __init__(self, G, initial_state=initial_state, state_transition=state_transition,
             stop_condition=None, name=''):
         '''
         Create a Simulation instance.
