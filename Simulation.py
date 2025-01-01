@@ -20,6 +20,43 @@ import matplotlib.pyplot as plt
 import networkx as nx
 
 
+def initial_state(G):
+    state = {}
+    for node in G.nodes:
+        state[node] = 'S'
+    
+    patient_zero = random.choice(list(G.nodes))
+    state[patient_zero] = 'I'
+    return state
+
+initial_state(G)
+
+"""
+Model Parameters Parameters (let use a dict)
+"""
+MU = 0.1
+BETA = 0.1
+
+simpar=dict()
+simpar['MU']=0.1
+simpar['BETA']=0,1
+
+def state_transition(G, current_state):
+    next_state = {}
+    for node in G.nodes:
+        if current_state[node] == 'I':
+            if random.random() < MU:
+                next_state[node] = 'S'
+        else: # current_state[node] == 'S'
+            for neighbor in G.neighbors(node):
+                if current_state[neighbor] == 'I':
+                    if random.random() < BETA:
+                        next_state[node] = 'I'
+
+    return next_state
+
+
+
 class StopCondition(StopIteration):
     pass
 
